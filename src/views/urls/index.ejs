@@ -1,0 +1,43 @@
+<button class="button-create-url">
+	<a href="/app/urls/new">Create a New Short Link</a>
+</button>
+<% if (urls.length === 0) { %>
+    <div id="empty-message">
+        
+        <p>Your URLS list is empty</p>
+    </div>
+    <ul>
+	<% } %> <% urls.forEach(url => { %>
+	<div id="url-box">
+		<div id="url-box-text">
+			<p>
+				Short Url:
+				<a href="<%= baseUrl + url.shortUrl %>" target="_blank"
+					>http:<%= baseUrl + url.shortUrl %></a
+				>
+			</p>
+
+			<p>
+				Long URL:
+				<a href="<%= url.longUrl %>" target="_blank"><%= url.longUrl %></a>
+			</p>
+
+			<p>URL Created at: <%= new Date(url.created_at).toLocaleString() %></p>
+
+			<p>Visits Count: <%= url.visit_count %></p>
+
+			<p>Unique Visits Count: <%= url.unique_visit_count %></p>
+		</div>
+
+		<div id="url-box-buttons">
+			<button class="button-edit-url">
+				<a href="/app/urls/<%= url.id %>">Edit URL</a>
+			</button>
+			<form action="/app/urls/<%= url.id %>/delete" method="post">
+				<button id="delete-button" type="submit">Delete URL</button>
+			</form>
+			<br />
+		</div>
+	</div>
+	<% }) %>
+</ul>

@@ -1,0 +1,25 @@
+<main id="adjust-page">
+	<div>
+		<h2 id="edit-title">Here you can Edit your URL</h2>
+	</div>
+	<div id="edit-page">
+		<form action="/app/urls/<%= id %>" method="post">
+			<div id="edit-box">
+				<div>
+					<label for="long-url">Paste Here the New URL:</label>
+					<input type="text" id="long-url" name="longUrl" required />
+					<p><%= message %></p>
+				</div>
+				<div>
+					<button id="cancel-button" type="button" onclick="history.back()">Cancel</button>
+					<button class="button-edit-url" type="submit">Save Changes</button>
+				</div>
+			</div>
+		</form>
+		<div>
+			<form action="/app/urls/<%= id %>/delete" method="post">
+				<button id="delete-button" type="submit">Delete URL</button>
+			</form>
+		</div>
+	</div>
+</main>

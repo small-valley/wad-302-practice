@@ -1,0 +1,20 @@
+<main id="adjust-page">
+    <div>
+        <h2 id="edit-title">Create your new URL</h2>
+    </div>
+
+    <div id="create-page">
+        <div >
+
+            <form id="create-form" action="/app/urls/new" method="post">
+                <label for="long-url">Paste Here the URL:</label>
+                <input type="text" id="long-url" name="longUrl" required />
+                <p><%= message %></p>
+                <div>
+                    <button class="cancel-button" type="button" onclick="history.back()">Cancel</button>
+                    <button class="button-edit-url" type="submit">Create</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</main>

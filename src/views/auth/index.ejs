@@ -1,0 +1,31 @@
+<main id="adjust-page">
+	<% if (page === "register") { %>
+	<h1 id="edit-title">Register Page</h1>
+	<% } %> <% if (page === "login") { %>
+	<h1 id="edit-title">Login Page</h1>
+
+	<% } %>
+
+	<form id="create-page" action="/auth/<%= page %>" method="post">
+		<label for="auth-email">Email:</label>
+		<input type="email" id="auth-email" name="email" required />
+		<label for="auth-password">Password:</label>
+		<input type="password" id="auth-password" name="password" required minlength="4" />
+
+		<% if (page === "register") { %>
+		<label for="auth-password-confirm">Confirm Password:</label>
+		<input
+			type="password"
+			id="auth-password-confirm"
+			name="passwordConfirm"
+			required
+			minlength="4"
+		/>
+		<p><%= message %></p>
+		<button class="button-edit-url" type="submit">Register User</button>
+		<% } else { %>
+		<p><%= message %></p>
+		<button class="button-edit-url" type="submit">Login User</button>
+		<% } %>
+	</form>
+</main>
