@@ -1,5 +1,5 @@
-import * as crypto from "crypto";
 import { Request, Response } from "express";
+import { pool } from "../db/helpers/pool";
 import { comparePassword, hashedPassword } from "../helpers/users.helper";
 import { users } from "../models/user";
 import { User } from "./../models/types/user";
@@ -17,7 +17,12 @@ const renderRegister = (req: Request, res: Response) => {
 const create = async (req: Request, res: Response) => {
     const { email, password, passwordConfirm } = req.body;
 
-    const isExisting = users.some((user) => user.email === email);
+    const result = await pool.query<User>(
+        `SELECT * from users WHERE email = $1;`,
+        [email]
+    );
+
+    const isExisting = result.rows.length >= 1;
 
     if (isExisting) {
         res.status(400);
@@ -41,13 +46,17 @@ const create = async (req: Request, res: Response) => {
         return;
     }
 
-    const newUser: User = {
-        id: crypto.randomUUID(),
-        email: email,
-        password: await hashedPassword(password),
-    };
+    const response = await pool.query<User>(
+        `
+          INSERT INTO users (email, password)
+          VALUES
+            ($1, $2)
+          RETURNING *;
+        `,
+        [email, await hashedPassword(password)]
+    );
 
-    users.push(newUser);
+    console.log(response.rows[0]);
 
     res.redirect("/app/urls");
 };

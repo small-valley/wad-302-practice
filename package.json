@@ -1,42 +1,43 @@
 {
-    "name": "wad-302-mid-term-tiny-url-rafael-masahiro",
-    "version": "1.0.0",
-    "description": "## Goal",
-    "main": "index.js",
-    "scripts": {
-        "dev": "tsnd --inspect -- src/",
-        "compile:css": "sass -w src/public/sass:src/public/css",
-        "hat-load": "browser-sync start -p 'http://localhost:3000' -f 'src/views, src/public' --port 3001",
-        "dev2": "concurrently 'npm run compile:css' 'npm run hat-load'",
-        "db:reset": "psql -U postgres -d postgres < ./src/db/migrations/init.sql && psql -U bart -d projects < ./src/db/seed/seed.sql"
-    },
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
-    "dependencies": {
-        "bcrypt": "^5.1.1",
-        "cookie-session": "^2.0.0",
-        "crypto-randomuuid": "^1.0.0",
-        "dotenv": "^16.3.1",
-        "ejs": "^3.1.9",
-        "express": "^4.18.2",
-        "express-ejs-layouts": "^2.5.1",
-        "is-url": "^1.2.4",
-        "pg": "^8.11.3"
-    },
-    "devDependencies": {
-        "@types/bcrypt": "^5.0.2",
-        "@types/cookie-session": "^2.0.48",
-        "@types/express": "^4.17.21",
-        "@types/express-ejs-layouts": "^2.5.4",
-        "@types/is-url": "^1.2.32",
-        "@types/morgan": "^1.9.9",
-        "@types/node": "^20.11.0",
-        "browser-sync": "^3.0.2",
-        "concurrently": "^8.2.2",
-        "morgan": "^1.10.0",
-        "sass": "^1.69.7",
-        "ts-node-dev": "^2.0.0",
-        "typescript": "^5.3.3"
-    }
+  "name": "wad-302-mid-term-tiny-url-rafael-masahiro",
+  "version": "1.0.0",
+  "description": "## Goal",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tsnd --inspect -- src/",
+    "compile:css": "sass -w src/public/sass:src/public/css",
+    "hat-load": "browser-sync start -p 'http://localhost:3000' -f 'src/views, src/public' --port 3001",
+    "dev2": "concurrently 'npm run compile:css' 'npm run hat-load'",
+    "db:reset": "psql -U postgres -d postgres < ./src/db/migrations/init.sql && psql -U bart -d projects < ./src/db/seed/seed.sql"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "cookie-session": "^2.0.0",
+    "crypto-randomuuid": "^1.0.0",
+    "dotenv": "^16.3.1",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "express-ejs-layouts": "^2.5.1",
+    "is-url": "^1.2.4",
+    "pg": "^8.11.3"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.2",
+    "@types/cookie-session": "^2.0.48",
+    "@types/express": "^4.17.21",
+    "@types/express-ejs-layouts": "^2.5.4",
+    "@types/is-url": "^1.2.32",
+    "@types/morgan": "^1.9.9",
+    "@types/node": "^20.11.0",
+    "@types/pg": "^8.11.0",
+    "browser-sync": "^3.0.2",
+    "concurrently": "^8.2.2",
+    "morgan": "^1.10.0",
+    "sass": "^1.69.7",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.3.3"
+  }
 }

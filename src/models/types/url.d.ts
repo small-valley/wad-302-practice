@@ -1,6 +1,6 @@
 export type Url = {
     id: number;
-    user_id: string;
+    user_id: number;
     longUrl: string;
     shortUrl: string;
     visit_count: number;

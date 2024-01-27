@@ -13,5 +13,6 @@ export const isUrlExisting = (
     longUrl: string
 ) =>
     urls.find(
-        (url) => url.longUrl === longUrl && currentUserId === url.user_id
+        (url) =>
+            url.longUrl === longUrl && currentUserId === url.user_id.toString()
     );
